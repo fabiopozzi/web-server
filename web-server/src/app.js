@@ -40,9 +40,29 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
+    if (!req.query.address) {
+        return res.send({
+            error: 'You must provide an address. Try again'
+        })
+    }
+
     res.send({
         forecast: 'Cielo libero da nuvole. Giornata soleggiata. Temperature in salita fino a 18 C',
-        location: 'Novara'
+        location: 'Novara',
+        address: req.query.address
+    })
+})
+
+app.get('/products', (req, res) => {
+
+    if (!req.query.search) {
+        return res.send({
+            error: 'You must provide a search term'
+        })
+    }
+    console.log(req.query.search)
+    res.send({
+        products: []
     })
 })
 
