@@ -24,7 +24,7 @@ app.use(express.static(publicDirPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather',
+        title: 'Meteo',
         name: 'Fabio Pozzi'
     })
 })
@@ -39,7 +39,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
-        message: 'This page explains how to use the website',
+        message: 'Questa pagina spiega come usare il sito',
         name: 'Fabio Pozzi'
     })
 })
@@ -47,7 +47,7 @@ app.get('/help', (req, res) => {
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({
-            error: 'You must provide an address. Try again'
+            error: 'Indirizzo mancante. Riprova'
         })
     }
 
@@ -74,7 +74,7 @@ app.get('/products', (req, res) => {
 
     if (!req.query.search) {
         return res.send({
-            error: 'You must provide a search term'
+            error: 'Devi fornire un termine di ricerca'
         })
     }
     console.log(req.query.search)
@@ -86,7 +86,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404 Error',
-        errorMessage: 'Help article not found',
+        errorMessage: 'Articolo di aiuto non trovato',
         name: 'Fabio Pozzi'
     })
 })
@@ -94,7 +94,7 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404 Error',
-        errorMessage: 'Page not found',
+        errorMessage: 'Pagina non trovata',
         name: 'Fabio Pozzi'
     })
 })
