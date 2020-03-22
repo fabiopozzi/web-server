@@ -15,10 +15,10 @@ weatherForm.addEventListener('submit', (e) => {
     fetch(queryString).then((response) => {
         response.json().then((data) => {
             if (data.error) {
-                messageOne.textContent = 'Error: '+ data.error
+                messageOne.textContent = 'Errore: '+ data.error
             } else {
-                messageOne.textContent = 'Location: ' + data.location
-                messageTwo.textContent = 'Forecast: ' + data.forecast
+                messageOne.textContent = 'Luogo: ' + data.location
+                messageTwo.textContent = 'Previsione: ' + data.forecast
 
             }
         })
